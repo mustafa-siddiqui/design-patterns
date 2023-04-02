@@ -6,3 +6,10 @@
  * @copyright Copyright (c) 2023
  *
  */
+
+#include "forecast-display.h"
+
+/// Interface methods
+
+void ForecastDisplay::update() {}
+void ForecastDisplay::display() {}
