@@ -11,16 +11,19 @@
 #include "interfaces/observer-intf.h"
 #include <vector>
 
+/// Constants
+const int MAX_MEASUREMENTS = 10;
+
 /**
  * @brief Class representing the statistics display.
  */
 class StatisticsDisplay : public Observer, public DisplayElement {
   protected:
-    std::vector<int> my_last_ten_temperature_measurements;
+    std::vector<int> my_temperature_measurements;
 
   public:
     /// Constructor
-    StatisticsDisplay() = default;
+    StatisticsDisplay();
 
     /**
      * @brief Add temperature measurement value to list of stored measurements.
