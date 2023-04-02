@@ -6,3 +6,22 @@
  * @copyright Copyright (c) 2023
  *
  */
+
+#include "interfaces/display-element-intf.h"
+#include "interfaces/observer-intf.h"
+
+class CurrentConditionsDisplay : public Observer, public DisplayElement {
+  protected:
+  public:
+    /// Constructor
+    CurrentConditionsDisplay() = default;
+
+    /// Interface methods
+
+    void update();
+
+    /**
+     * @brief Display the current measurement values.
+     */
+    void display();
+};
