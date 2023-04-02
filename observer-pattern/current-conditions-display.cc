@@ -12,4 +12,4 @@
 /// Interface methods
 
 void CurrentConditionsDisplay::update() {}
-void CurrentConditionsDisplay::display() {}
+void CurrentConditionsDisplay::display() const {}

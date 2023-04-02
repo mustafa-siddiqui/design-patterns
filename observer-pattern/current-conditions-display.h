@@ -7,6 +7,9 @@
  *
  */
 
+#ifndef _CURRENT_CONDITIONS_DISPLAY_
+#define _CURRENT_CONDITIONS_DISPLAY_
+
 #include "interfaces/display-element-intf.h"
 #include "interfaces/observer-intf.h"
 
@@ -15,13 +18,19 @@ class CurrentConditionsDisplay : public Observer, public DisplayElement {
   public:
     /// Constructor
     CurrentConditionsDisplay() = default;
+    CurrentConditionsDisplay(CurrentConditionsDisplay const &) = default;
+    CurrentConditionsDisplay &
+    operator=(CurrentConditionsDisplay const &) = default;
+    ~CurrentConditionsDisplay() override = default;
 
     /// Interface methods
 
-    void update();
+    void update() override;
 
     /**
      * @brief Display the current measurement values.
      */
-    void display();
+    void display() const override;
 };
+
+#endif /* _CURRENT_CONDITIONS_DISPLAY_ */

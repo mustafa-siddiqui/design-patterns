@@ -7,6 +7,9 @@
  *
  */
 
+#ifndef _WEATHER_DATA_
+#define _WEATHER_DATA_
+
 #include "interfaces/observable-intf.h"
 
 /**
@@ -22,7 +25,13 @@ class WeatherData : public Observable {
 
   public:
     /// constructor
-    WeatherData(int temperature, int humidity, int pressure);
+    explicit WeatherData(int temperature, int humidity, int pressure)
+        : Observable(), my_temperature(temperature), my_humidity(humidity),
+          my_pressure(pressure){};
+
+    WeatherData(WeatherData const &) = default;
+    WeatherData &operator=(WeatherData const &) = default;
+    ~WeatherData() override = default;
 
     /**
      * @brief This method is called whenever this object receives updated
@@ -50,13 +59,15 @@ class WeatherData : public Observable {
 
     /// Getters
 
-    int getTemperature();
-    int getHumidity();
-    int getPressure();
+    int getTemperature() const;
+    int getHumidity() const;
+    int getPressure() const;
 
     /// Interface methods
 
-    void registerObserver();
-    void removeObserver();
-    void notifyObservers();
+    void registerObserver() override;
+    void removeObserver() override;
+    void notifyObservers() const override;
 };
+
+#endif /* _WEATHER_DATA */

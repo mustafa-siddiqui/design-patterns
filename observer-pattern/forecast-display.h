@@ -7,6 +7,9 @@
  *
  */
 
+#ifndef _FORECAST_DISPLAY_
+#define _FORECAST_DISPLAY_
+
 #include "interfaces/display-element-intf.h"
 #include "interfaces/observer-intf.h"
 
@@ -15,13 +18,18 @@ class ForecastDisplay : public Observer, public DisplayElement {
   public:
     /// Constructor
     ForecastDisplay() = default;
+    ForecastDisplay(ForecastDisplay const &) = default;
+    ForecastDisplay &operator=(ForecastDisplay const &) = default;
+    ~ForecastDisplay() override = default;
 
     /// Interface methods
 
-    void update();
+    void update() override;
 
     /**
      * @brief Display shows the weather forecast based on the barometer.
      */
-    void display();
+    void display() const override;
 };
+
+#endif /* _FORECAST_DISPLAY_ */

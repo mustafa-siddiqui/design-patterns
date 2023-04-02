@@ -10,11 +10,6 @@
 #include "weather-data.h"
 #include <assert.h>
 
-/// Constructor
-WeatherData::WeatherData(int temperature, int humidity, int pressure)
-    : Observable(), my_temperature(temperature), my_humidity(humidity),
-      my_pressure(pressure) {}
-
 void WeatherData::measurementsChanged() {}
 
 void WeatherData::setMeasurements(int temperature, int humidity, int pressure) {
@@ -28,12 +23,12 @@ void WeatherData::setPressure(int val) {}
 
 /// Getters
 
-int WeatherData::getTemperature() {}
-int WeatherData::getHumidity() {}
-int WeatherData::getPressure() {}
+int WeatherData::getTemperature() const {}
+int WeatherData::getHumidity() const {}
+int WeatherData::getPressure() const {}
 
 /// Interface methods
 
 void WeatherData::registerObserver() {}
 void WeatherData::removeObserver() {}
-void WeatherData::notifyObservers() {}
+void WeatherData::notifyObservers() const {}

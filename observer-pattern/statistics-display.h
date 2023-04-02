@@ -7,6 +7,9 @@
  *
  */
 
+#ifndef _STATISTICS_DISPLAY_
+#define _STATISTICS_DISPLAY_
+
 #include "interfaces/display-element-intf.h"
 #include "interfaces/observer-intf.h"
 #include <vector>
@@ -23,7 +26,13 @@ class StatisticsDisplay : public Observer, public DisplayElement {
 
   public:
     /// Constructor
-    StatisticsDisplay();
+    StatisticsDisplay() : Observer(), DisplayElement() {
+        my_temperature_measurements.reserve(MAX_MEASUREMENTS);
+    };
+
+    StatisticsDisplay(StatisticsDisplay const &) = default;
+    StatisticsDisplay &operator=(StatisticsDisplay const &) = default;
+    ~StatisticsDisplay() override = default;
 
     /**
      * @brief Add temperature measurement value to list of stored measurements.
@@ -35,7 +44,7 @@ class StatisticsDisplay : public Observer, public DisplayElement {
 
     /// Interface methods
 
-    void update();
+    void update() override;
 
     /**
      * @brief Display the average, min, & max temperature measurements.
@@ -43,5 +52,7 @@ class StatisticsDisplay : public Observer, public DisplayElement {
      * @param null
      * @return null
      */
-    void display();
+    void display() const override;
 };
+
+#endif /* _STATISTICS_DISPLAY_ */

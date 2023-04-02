@@ -12,4 +12,4 @@
 /// Interface methods
 
 void ForecastDisplay::update() {}
-void ForecastDisplay::display() {}
+void ForecastDisplay::display() const {}
