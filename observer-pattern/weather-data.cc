@@ -12,7 +12,7 @@
 
 /// Constructor
 WeatherData::WeatherData(int temperature, int humidity, int pressure)
-    : my_temperature(temperature), my_humidity(humidity),
+    : Observable(), my_temperature(temperature), my_humidity(humidity),
       my_pressure(pressure) {}
 
 void WeatherData::measurementsChanged() {}
