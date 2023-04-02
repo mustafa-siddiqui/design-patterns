@@ -11,6 +11,9 @@
 #include "interfaces/observer-intf.h"
 #include <vector>
 
+/**
+ * @brief Class representing the statistics display.
+ */
 class StatisticsDisplay : public Observer, public DisplayElement {
   protected:
     std::vector<int> my_last_ten_temperature_measurements;
