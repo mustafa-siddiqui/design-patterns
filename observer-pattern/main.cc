@@ -77,13 +77,22 @@ int main(void) {
     bool constructedMap;
     constructedMap = insertIntoMap<DISPLAYS, DisplayElement, ForecastDisplay>(
         displays, DISPLAYS::forecast, std::move(forecastDisplayPtr));
+    if (!constructedMap) {
+        std::cerr << "Error: cannot construct map of displays." << _LOG_INFO
+                  << std::endl;
+    }
+
     constructedMap = insertIntoMap<DISPLAYS, DisplayElement, StatisticsDisplay>(
         displays, DISPLAYS::statistics, std::move(statisticsDisplayPtr));
+    if (!constructedMap) {
+        std::cerr << "Error: cannot construct map of displays." << _LOG_INFO
+                  << std::endl;
+    }
+
     constructedMap =
         insertIntoMap<DISPLAYS, DisplayElement, CurrentConditionsDisplay>(
             displays, DISPLAYS::current_conditions,
             std::move(currentConditionsDisplayPtr));
-
     if (!constructedMap) {
         std::cerr << "Error: cannot construct map of displays." << _LOG_INFO
                   << std::endl;
