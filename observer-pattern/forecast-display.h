@@ -20,6 +20,8 @@ class ForecastDisplay : public Observer, public DisplayElement {
     ForecastDisplay() = default;
     ForecastDisplay(ForecastDisplay const &) = default;
     ForecastDisplay &operator=(ForecastDisplay const &) = default;
+    ForecastDisplay(ForecastDisplay &&) noexcept = default;
+    ForecastDisplay &operator=(ForecastDisplay &&) noexcept = default;
     ~ForecastDisplay() override = default;
 
     /// Interface methods

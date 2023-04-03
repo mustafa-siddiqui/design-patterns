@@ -32,6 +32,9 @@ class StatisticsDisplay : public Observer, public DisplayElement {
 
     StatisticsDisplay(StatisticsDisplay const &) = default;
     StatisticsDisplay &operator=(StatisticsDisplay const &) = default;
+    StatisticsDisplay(StatisticsDisplay &&) noexcept = default;
+    StatisticsDisplay &operator=(StatisticsDisplay &&) noexcept = default;
+
     ~StatisticsDisplay() override = default;
 
     /**

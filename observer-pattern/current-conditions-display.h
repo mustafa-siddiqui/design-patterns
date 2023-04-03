@@ -21,6 +21,9 @@ class CurrentConditionsDisplay : public Observer, public DisplayElement {
     CurrentConditionsDisplay(CurrentConditionsDisplay const &) = default;
     CurrentConditionsDisplay &
     operator=(CurrentConditionsDisplay const &) = default;
+    CurrentConditionsDisplay(CurrentConditionsDisplay &&) noexcept = default;
+    CurrentConditionsDisplay &
+    operator=(CurrentConditionsDisplay &&) noexcept = default;
     ~CurrentConditionsDisplay() override = default;
 
     /// Interface methods
