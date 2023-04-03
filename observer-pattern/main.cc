@@ -73,6 +73,10 @@ int main(void) {
         std::make_unique<CurrentConditionsDisplay>();
 
     std::unordered_map<DISPLAYS, std::unique_ptr<DisplayElement>> displays;
+    
+    /// There are better ways to construct/populate this map. Leaving it like
+    /// this since that is out of scope of this project. Stopping myself from
+    /// falling into this hole of trying to improve this -- kind of generic enough.
 
     bool constructedMap;
     constructedMap = insertIntoMap<DISPLAYS, DisplayElement, ForecastDisplay>(
