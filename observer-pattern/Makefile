@@ -10,3 +10,6 @@ DATA = weather-data.cc
 
 all:
 	${CXX} ${CXXFLAGS} -std=c++14 ${MAIN} ${DATA} ${DISPLAYS}
+
+clean:
+	rm a.out
