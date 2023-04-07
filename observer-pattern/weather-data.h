@@ -11,6 +11,7 @@
 #define _WEATHER_DATA_
 
 #include "interfaces/observable-intf.h"
+#include <set>
 
 /// Forward declares
 class Observer;
@@ -25,6 +26,7 @@ class WeatherData : public Observable {
     int my_temperature;
     int my_humidity;
     int my_pressure;
+    std::set<std::shared_ptr<Observer>> my_observers;
 
   public:
     /// constructor
