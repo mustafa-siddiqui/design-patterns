@@ -73,16 +73,16 @@ bool insertIntoMap(std::unordered_map<T1, std::shared_ptr<T2>> &map, T1 key,
  * @param display display type (enum)
  * @return null
  */
-inline void
-showDisplay(std::unordered_map<DISPLAYS, std::shared_ptr<DisplayElement>> map,
-            DISPLAYS display) {
+inline void showDisplay(
+    std::unordered_map<DISPLAYS, std::shared_ptr<DisplayElement>> const &map,
+    DISPLAYS display) {
     map.at(display)->display();
 }
 
 int main(void) {
     auto weatherData = std::make_shared<WeatherData>(0, 0, 0);
 
-    auto forecastDisplayPtr = std::make_shared<ForecastDisplay>();
+    auto forecastDisplayPtr = std::make_shared<ForecastDisplay>(weatherData);
     auto statisticsDisplayPtr =
         std::make_shared<StatisticsDisplay>(weatherData);
     auto currentConditionsDisplayPtr =
@@ -122,10 +122,39 @@ int main(void) {
 
     // emulate weather update
     weatherData->setMeasurements(70, 50, 1013);
+
     showDisplay(displays, DISPLAYS::current_conditions);
     showDisplay(displays, DISPLAYS::statistics);
+    showDisplay(displays, DISPLAYS::forecast);
 
     weatherData->setMeasurements(90, 20, 1014);
+
+    showDisplay(displays, DISPLAYS::statistics);
+    showDisplay(displays, DISPLAYS::forecast);
+
+    weatherData->setMeasurements(40, 30, 1012);
+
+    showDisplay(displays, DISPLAYS::forecast);
+    showDisplay(displays, DISPLAYS::statistics);
+
+    weatherData->setMeasurements(10, 15, 1015);
+    weatherData->setMeasurements(5, 12, 1015);
+    weatherData->setMeasurements(25, 30, 1014);
+    weatherData->setMeasurements(65, 45, 1012);
+
+    showDisplay(displays, DISPLAYS::current_conditions);
+    showDisplay(displays, DISPLAYS::statistics);
+    showDisplay(displays, DISPLAYS::forecast);
+
+    weatherData->setMeasurements(80, 50, 1015);
+    weatherData->setMeasurements(75, 35, 1015);
+    weatherData->setMeasurements(63, 30, 1014);
+    weatherData->setMeasurements(69, 60, 1012);
+
+    showDisplay(displays, DISPLAYS::statistics);
+
+    weatherData->setMeasurements(85, 45, 1013);
+
     showDisplay(displays, DISPLAYS::statistics);
 
     return 0;
