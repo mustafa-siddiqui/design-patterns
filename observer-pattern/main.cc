@@ -83,7 +83,8 @@ int main(void) {
     auto weatherData = std::make_shared<WeatherData>(0, 0, 0);
 
     auto forecastDisplayPtr = std::make_shared<ForecastDisplay>();
-    auto statisticsDisplayPtr = std::make_shared<StatisticsDisplay>();
+    auto statisticsDisplayPtr =
+        std::make_shared<StatisticsDisplay>(weatherData);
     auto currentConditionsDisplayPtr =
         std::make_shared<CurrentConditionsDisplay>(weatherData);
 
@@ -122,6 +123,10 @@ int main(void) {
     // emulate weather update
     weatherData->setMeasurements(70, 50, 1013);
     showDisplay(displays, DISPLAYS::current_conditions);
+    showDisplay(displays, DISPLAYS::statistics);
+
+    weatherData->setMeasurements(90, 20, 1014);
+    showDisplay(displays, DISPLAYS::statistics);
 
     return 0;
 }

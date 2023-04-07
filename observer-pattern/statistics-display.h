@@ -14,6 +14,9 @@
 #include "interfaces/observer-intf.h"
 #include <vector>
 
+/// Forward declares
+class WeatherData;
+
 /// Constants
 const int MAX_MEASUREMENTS = 10;
 
@@ -22,20 +25,23 @@ const int MAX_MEASUREMENTS = 10;
  */
 class StatisticsDisplay : public Observer, public DisplayElement {
   protected:
+    std::shared_ptr<WeatherData> weatherData;
     std::vector<int> my_temperature_measurements;
 
   public:
     /// Constructor
-    StatisticsDisplay() : Observer(), DisplayElement() {
-        my_temperature_measurements.reserve(MAX_MEASUREMENTS);
-    };
-
+    StatisticsDisplay() = delete;
     StatisticsDisplay(StatisticsDisplay const &) = default;
     StatisticsDisplay &operator=(StatisticsDisplay const &) = default;
     StatisticsDisplay(StatisticsDisplay &&) noexcept = default;
     StatisticsDisplay &operator=(StatisticsDisplay &&) noexcept = default;
-
     ~StatisticsDisplay() override = default;
+
+    explicit StatisticsDisplay(std::shared_ptr<WeatherData> weatherDataObjPtr)
+        : Observer(), DisplayElement(), weatherData(weatherDataObjPtr) {
+        assert(weatherData != nullptr);
+        my_temperature_measurements.reserve(MAX_MEASUREMENTS);
+    };
 
     /**
      * @brief Add temperature measurement value to list of stored measurements.
