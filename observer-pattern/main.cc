@@ -60,9 +60,23 @@ template <typename T1, typename T2, typename T2_1>
 bool insertIntoMap(std::unordered_map<T1, std::shared_ptr<T2>> &map, T1 key,
                    std::shared_ptr<T2_1> valuePtr) {
 
-    auto returnPair = map.emplace(key, std::move(valuePtr));
+    auto returnPair = map.emplace(key, valuePtr);
 
     return _validateMapInsertion<T1, std::shared_ptr<T2>>(returnPair);
+}
+
+/**
+ * @brief Show display based on type. A utility function mainly to hide
+ * implementation detail.
+ *
+ * @param map A map of displays with their type (enum)
+ * @param display display type (enum)
+ * @return null
+ */
+inline void
+showDisplay(std::unordered_map<DISPLAYS, std::shared_ptr<DisplayElement>> map,
+            DISPLAYS display) {
+    map.at(display)->display();
 }
 
 int main(void) {
@@ -73,37 +87,41 @@ int main(void) {
     auto currentConditionsDisplayPtr =
         std::make_shared<CurrentConditionsDisplay>(weatherData);
 
-    std::unordered_map<DISPLAYS, std::shared_ptr<Observer>> displays;
+    std::unordered_map<DISPLAYS, std::shared_ptr<DisplayElement>> displays;
 
     /// There are better ways to construct/populate this map. Leaving it like
     /// this since that is out of scope of this project. Stopping myself from
     /// falling into this hole of trying to improve this -- kind of generic
     /// enough.
 
-    if (!insertIntoMap<DISPLAYS, Observer, ForecastDisplay>(
-            displays, DISPLAYS::forecast, std::move(forecastDisplayPtr))) {
+    if (!insertIntoMap<DISPLAYS, DisplayElement, ForecastDisplay>(
+            displays, DISPLAYS::forecast, forecastDisplayPtr)) {
         std::cerr << "Error: cannot construct map of displays." << _LOG_INFO
                   << std::endl;
     }
 
-    if (!insertIntoMap<DISPLAYS, Observer, StatisticsDisplay>(
-            displays, DISPLAYS::statistics, std::move(statisticsDisplayPtr))) {
+    if (!insertIntoMap<DISPLAYS, DisplayElement, StatisticsDisplay>(
+            displays, DISPLAYS::statistics, statisticsDisplayPtr)) {
         std::cerr << "Error: cannot construct map of displays." << _LOG_INFO
                   << std::endl;
     }
 
-    if (insertIntoMap<DISPLAYS, Observer, CurrentConditionsDisplay>(
+    if (!insertIntoMap<DISPLAYS, DisplayElement, CurrentConditionsDisplay>(
             displays, DISPLAYS::current_conditions,
-            std::move(currentConditionsDisplayPtr))) {
+            currentConditionsDisplayPtr)) {
         std::cerr << "Error: cannot construct map of displays." << _LOG_INFO
                   << std::endl;
     }
     assert(displays.size() == NUM_DISPLAYS);
 
     // add displays as observers
-    weatherData->registerObserver(displays.at(DISPLAYS::forecast));
-    weatherData->registerObserver(displays.at(DISPLAYS::statistics));
-    weatherData->registerObserver(displays.at(DISPLAYS::current_conditions));
+    weatherData->registerObserver(forecastDisplayPtr);
+    weatherData->registerObserver(statisticsDisplayPtr);
+    weatherData->registerObserver(currentConditionsDisplayPtr);
+
+    // emulate weather update
+    weatherData->setMeasurements(70, 50, 1013);
+    showDisplay(displays, DISPLAYS::current_conditions);
 
     return 0;
 }
