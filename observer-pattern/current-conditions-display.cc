@@ -22,7 +22,7 @@ void CurrentConditionsDisplay::update() {
 
 void CurrentConditionsDisplay::display() const {
     std::cout << "--- Current Conditions ---" << std::endl
-              << "Temperature: " << my_current_temperature << " ºC" << std::endl
+              << "Temperature: " << my_current_temperature << " ºF" << std::endl
               << "Humidity: " << my_current_humidity << "%" << std::endl
               << "Pressure: " << my_current_pressure << " Pa" << std::endl
               << "--------------------------" << std::endl;

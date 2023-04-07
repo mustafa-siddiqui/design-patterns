@@ -40,7 +40,7 @@ void StatisticsDisplay::update() {
 void StatisticsDisplay::display() const {
     std::cout << "--- Temperature Statistics ---" << std::endl
               << "Average Temperature: "
-              << _getAverageTemperature(my_temperature_measurements) << " ºC"
+              << _getAverageTemperature(my_temperature_measurements) << " ºF"
               << std::endl
               << "Over " << my_temperature_measurements.size() << " readings."
               << std::endl

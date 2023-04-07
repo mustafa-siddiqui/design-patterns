@@ -100,9 +100,9 @@ void ForecastDisplay::update() {
 
 void ForecastDisplay::display() const {
     std::cout << "--- Weather Forecast ---" << std::endl
-              << "Current Temperature: " << my_current_temperature << "ºC, "
+              << "Current Temperature: " << my_current_temperature << " ºF, "
               << "Next Day Forecast: "
-              << _getRandomTemperatureForecast(my_current_temperature) << " ºC"
+              << _getRandomTemperatureForecast(my_current_temperature) << " ºF"
               << std::endl
               << "Current humidity: " << my_current_humidity << "%, "
               << "Next Day Forecast: "
