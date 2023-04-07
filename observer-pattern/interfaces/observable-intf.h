@@ -10,6 +10,11 @@
 #ifndef _OBSERVABLE_
 #define _OBSERVABLE_
 
+#include <memory>
+
+/// Forward declares
+class Observer;
+
 /**
  * @brief Interface for a observable class or a subject class.
  */
@@ -22,17 +27,17 @@ class Observable {
 
     /**
      * @brief Add/register observer to pool of observers.
-     * @param null
+     * @param observerObjPtr A shared pointer to an observer object.
      * @return null
      */
-    virtual void registerObserver() = 0;
+    virtual void registerObserver(std::shared_ptr<Observer> observerObjPtr) = 0;
 
     /**
      * @brief Remove observer from pool of observers.
-     * @param null
+     * @param observerObjPtr A shared pointer to an observer object.
      * @return null
      */
-    virtual void removeObserver() = 0;
+    virtual void removeObserver(std::shared_ptr<Observer> observerObjPtr) = 0;
 
     /**
      * @brief Notify all observers of change to observable class.

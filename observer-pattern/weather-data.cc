@@ -29,6 +29,6 @@ int WeatherData::getPressure() const {}
 
 /// Interface methods
 
-void WeatherData::registerObserver() {}
-void WeatherData::removeObserver() {}
+void WeatherData::registerObserver(std::shared_ptr<Observer> observerObjPtr) {}
+void WeatherData::removeObserver(std::shared_ptr<Observer> observerObjPtr) {}
 void WeatherData::notifyObservers() const {}

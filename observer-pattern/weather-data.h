@@ -12,6 +12,9 @@
 
 #include "interfaces/observable-intf.h"
 
+/// Forward declares
+class Observer;
+
 /**
  * @brief Holds most recent weather data obtained from any external source like
  * sensors, third-party websites etc.
@@ -65,8 +68,8 @@ class WeatherData : public Observable {
 
     /// Interface methods
 
-    void registerObserver() override;
-    void removeObserver() override;
+    void registerObserver(std::shared_ptr<Observer> observerObjPtr) override;
+    void removeObserver(std::shared_ptr<Observer> observerObjPtr) override;
     void notifyObservers() const override;
 };
 
