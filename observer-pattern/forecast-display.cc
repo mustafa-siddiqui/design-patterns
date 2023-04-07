@@ -83,7 +83,7 @@ int _getRandomHumidityForecast(int current_humidity) {
     // cap/raise humidity level
     if (humidity_forecast > HUMIDITY_MAX) {
         return HUMIDITY_MAX;
-    } else if (humidity_forecast < HUMIDITY_MIN) {
+    } else if (humidity_forecast <= HUMIDITY_MIN) {
         // don't want humidity to be 0
         return HUMIDITY_MIN + 1;
     }
