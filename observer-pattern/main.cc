@@ -66,11 +66,12 @@ bool insertIntoMap(std::unordered_map<T1, std::shared_ptr<T2>> &map, T1 key,
 }
 
 int main(void) {
+    auto weatherData = std::make_shared<WeatherData>(0, 0, 0);
 
     auto forecastDisplayPtr = std::make_shared<ForecastDisplay>();
     auto statisticsDisplayPtr = std::make_shared<StatisticsDisplay>();
     auto currentConditionsDisplayPtr =
-        std::make_shared<CurrentConditionsDisplay>();
+        std::make_shared<CurrentConditionsDisplay>(weatherData);
 
     std::unordered_map<DISPLAYS, std::shared_ptr<Observer>> displays;
 
@@ -99,12 +100,10 @@ int main(void) {
     }
     assert(displays.size() == NUM_DISPLAYS);
 
-    auto weatherData = WeatherData(0, 0, 0);
-
     // add displays as observers
-    weatherData.registerObserver(displays.at(DISPLAYS::forecast));
-    weatherData.registerObserver(displays.at(DISPLAYS::statistics));
-    weatherData.registerObserver(displays.at(DISPLAYS::current_conditions));
+    weatherData->registerObserver(displays.at(DISPLAYS::forecast));
+    weatherData->registerObserver(displays.at(DISPLAYS::statistics));
+    weatherData->registerObserver(displays.at(DISPLAYS::current_conditions));
 
     return 0;
 }

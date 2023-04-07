@@ -12,12 +12,21 @@
 
 #include "interfaces/display-element-intf.h"
 #include "interfaces/observer-intf.h"
+#include <memory>
+
+/// Forward declares
+class WeatherData;
 
 class CurrentConditionsDisplay : public Observer, public DisplayElement {
   protected:
+    std::shared_ptr<WeatherData> weatherData;
+    int my_current_temperature = 0;
+    int my_current_humidity = 0;
+    int my_current_pressure = 0;
+
   public:
     /// Constructor
-    CurrentConditionsDisplay() = default;
+    CurrentConditionsDisplay() = delete;
     CurrentConditionsDisplay(CurrentConditionsDisplay const &) = default;
     CurrentConditionsDisplay &
     operator=(CurrentConditionsDisplay const &) = default;
@@ -25,6 +34,12 @@ class CurrentConditionsDisplay : public Observer, public DisplayElement {
     CurrentConditionsDisplay &
     operator=(CurrentConditionsDisplay &&) noexcept = default;
     ~CurrentConditionsDisplay() override = default;
+
+    explicit CurrentConditionsDisplay(
+        std::shared_ptr<WeatherData> weatherDataObjPtr)
+        : Observer(), DisplayElement(), weatherData(weatherDataObjPtr) {
+        assert(weatherData != nullptr);
+    }
 
     /// Interface methods
 
