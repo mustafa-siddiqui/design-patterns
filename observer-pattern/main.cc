@@ -120,6 +120,8 @@ int main(void) {
     weatherData->registerObserver(statisticsDisplayPtr);
     weatherData->registerObserver(currentConditionsDisplayPtr);
 
+    assert(weatherData->getNumberOfObservers() == 3);
+
     // emulate weather update
     weatherData->setMeasurements(70, 50, 1013);
 
@@ -156,6 +158,12 @@ int main(void) {
     weatherData->setMeasurements(85, 45, 1013);
 
     showDisplay(displays, DISPLAYS::statistics);
+
+    weatherData->removeObserver(forecastDisplayPtr);
+    weatherData->removeObserver(statisticsDisplayPtr);
+    weatherData->removeObserver(currentConditionsDisplayPtr);
+
+    assert(weatherData->getNumberOfObservers() == 0);
 
     return 0;
 }

@@ -67,6 +67,7 @@ class WeatherData : public Observable {
     int getTemperature() const;
     int getHumidity() const;
     int getPressure() const;
+    int getNumberOfObservers() const;
 
     /// Interface methods
 

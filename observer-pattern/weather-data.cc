@@ -39,6 +39,8 @@ int WeatherData::getHumidity() const { return my_humidity; }
 
 int WeatherData::getPressure() const { return my_pressure; }
 
+int WeatherData::getNumberOfObservers() const { return my_observers.size(); }
+
 /// Interface methods
 
 void WeatherData::registerObserver(std::shared_ptr<Observer> observerObjPtr) {
