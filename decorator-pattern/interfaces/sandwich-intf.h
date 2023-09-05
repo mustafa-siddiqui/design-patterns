@@ -8,11 +8,12 @@
  *
  */
 
-#ifndef _SANDWICH_H_
-#define _SANDWICH_H_
+#ifndef _SANDWICH_INTF_H_
+#define _SANDWICH_INTF_H_
 
 #include "interfaces/menu-item-intf.h"
 #include <cstdint>
+#include <string>
 
 /// Forward declares
 enum class SandwichType : uint8_t;
@@ -20,18 +21,25 @@ enum class SandwichType : uint8_t;
 /**
  * @brief Interface representing a sandwich item on the menu.
  */
-class Sandwich : MenuItem {
+class SandwichInterface : MenuItem {
   protected:
-    Sandwich() = default;
+    SandwichInterface() = default;
 
   public:
-    virtual ~Sandwich() override = default;
+    virtual ~SandwichInterface() override = default;
 
     /**
      * @brief Get the type of a sandwich.
      * @return Enum representing type of sandwich.
      */
     virtual SandwichType getType() const = 0;
+
+    /**
+     * @brief Returns a string representation of the
+     * sandwich.
+     * @return A string
+     */
+    virtual std::string toString() const = 0;
 };
 
-#endif /* _SANDWICH_H_ */
+#endif /* _SANDWICH_INTF_H_ */
