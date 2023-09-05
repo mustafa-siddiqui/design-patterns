@@ -7,17 +7,25 @@
  *
  */
 
+#include "enums/muffin-type.h"
 #include "enums/sandwich-type.h"
+#include "menu-items/muffin/muffin.h"
 #include "menu-items/sandwich/sandwich.h"
 #include <iostream>
 
 int main(void) {
 
-    SANDWICH chickenSandwich(SandwichType::CHICKEN);
-    SANDWICH grilledCheeseSandwich(SandwichType::GRILLED_CHEESE);
+    Sandwich chickenSandwich(SandwichType::CHICKEN);
+    Sandwich grilledCheeseSandwich(SandwichType::GRILLED_CHEESE);
 
     std::cout << chickenSandwich.toString() << std::endl;
     std::cout << grilledCheeseSandwich.toString() << std::endl;
+
+    Muffin chocolateChipMuffin(MuffinType::CHOCOLATE_CHIP);
+    Muffin blueberryMuffin(MuffinType::BLUEBERRY);
+
+    std::cout << chocolateChipMuffin.toString() << std::endl;
+    std::cout << blueberryMuffin.toString() << std::endl;
 
     return 0;
 }
