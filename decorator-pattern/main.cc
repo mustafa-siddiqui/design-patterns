@@ -8,8 +8,16 @@
  */
 
 #include "enums/sandwich-type.h"
-#include "interfaces/menu-item-intf.h"
-#include "interfaces/sandwich-intf.h"
+#include "sandwich.h"
 #include <iostream>
 
-int main(void) { return 0; }
+int main(void) {
+
+    SANDWICH chickenSandwich(SandwichType::CHICKEN);
+    SANDWICH grilledCheeseSandwich(SandwichType::GRILLED_CHEESE);
+
+    std::cout << chickenSandwich.toString() << std::endl;
+    std::cout << grilledCheeseSandwich.toString() << std::endl;
+
+    return 0;
+}
