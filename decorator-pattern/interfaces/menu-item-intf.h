@@ -10,6 +10,8 @@
 #ifndef _MENU_ITEM_H_
 #define _MENU_ITEM_H_
 
+#include <string>
+
 class MenuItem {
   protected:
     MenuItem() = default;
@@ -22,6 +24,13 @@ class MenuItem {
      * @return double Cost of the item.
      */
     virtual double getCost() const = 0;
+
+    /**
+     * @brief Returns a string representation of the
+     * menu item.
+     * @return A string
+     */
+    virtual std::string toString() const = 0;
 };
 
 #endif /* _MENU_ITEM_H_ */

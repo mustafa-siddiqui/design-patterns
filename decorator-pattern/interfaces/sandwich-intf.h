@@ -13,7 +13,6 @@
 
 #include "interfaces/menu-item-intf.h"
 #include <cstdint>
-#include <string>
 
 /// Forward declares
 enum class SandwichType : uint8_t;
@@ -33,13 +32,6 @@ class SandwichInterface : MenuItem {
      * @return Enum representing type of sandwich.
      */
     virtual SandwichType getType() const = 0;
-
-    /**
-     * @brief Returns a string representation of the
-     * sandwich.
-     * @return A string
-     */
-    virtual std::string toString() const = 0;
 };
 
 #endif /* _SANDWICH_INTF_H_ */
