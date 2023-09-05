@@ -8,7 +8,7 @@
  */
 
 #include "enums/sandwich-type.h"
-#include "sandwich.h"
+#include "menu-items/sandwich/sandwich.h"
 #include <iostream>
 
 int main(void) {
