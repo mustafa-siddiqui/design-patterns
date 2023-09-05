@@ -13,15 +13,15 @@
 
 #include "interfaces/sandwich-intf.h"
 
-class SANDWICH final : public SandwichInterface {
+class Sandwich final : public SandwichInterface {
   private:
     SandwichType myType;
     double myCost;
 
   public:
-    explicit SANDWICH(SandwichType const typeOfSandwich);
-    SANDWICH() = delete;
-    ~SANDWICH() = default;
+    explicit Sandwich(SandwichType const typeOfSandwich);
+    Sandwich() = delete;
+    ~Sandwich() = default;
 
     SandwichType getType() const override;
     double getCost() const override;

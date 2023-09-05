@@ -13,14 +13,14 @@
 #include "enums/sandwich-type.h"
 #include <sstream>
 
-SANDWICH::SANDWICH(SandwichType const typeOfSandwich)
+Sandwich::Sandwich(SandwichType const typeOfSandwich)
     : SandwichInterface(), myType(typeOfSandwich) {
-    this->myCost = sandwichCosts[this->myType];
+    this->myCost = SandwichCosts.at(this->myType);
 }
 
-SandwichType SANDWICH::getType() const { return this->myType; }
+SandwichType Sandwich::getType() const { return this->myType; }
 
-double SANDWICH::getCost() const { return this->myCost; }
+double Sandwich::getCost() const { return this->myCost; }
 
 /// << operator overload to convert sandwich type to a string representation
 std::ostream &operator<<(std::ostream &os, SandwichType const &obj) {
@@ -49,7 +49,7 @@ std::ostream &operator<<(std::ostream &os, SandwichType const &obj) {
     return os;
 }
 
-std::string SANDWICH::toString() const {
+std::string Sandwich::toString() const {
     std::stringstream ss;
     ss << "Sandwich: {";
     ss << "type: " << this->getType();
