@@ -18,7 +18,7 @@ Muffin::Muffin(MuffinType const typeOfMuffin)
     this->myCost = MuffinCosts.at(this->myType);
 }
 
-MuffinType Muffin::getType() const { return this->myType; }
+MuffinType Muffin::getMuffinType() const { return this->myType; }
 
 double Muffin::getCost() const { return this->myCost; }
 
@@ -52,7 +52,7 @@ std::ostream &operator<<(std::ostream &os, MuffinType const &obj) {
 std::string Muffin::toString() const {
     std::stringstream ss;
     ss << "Muffin: {";
-    ss << "type: " << this->getType();
+    ss << "type: " << this->getMuffinType();
     ss << ", ";
     ss << "cost: $" << this->getCost();
     ss << "}";

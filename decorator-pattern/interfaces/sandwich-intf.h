@@ -20,7 +20,7 @@ enum class SandwichType : uint8_t;
 /**
  * @brief Interface representing a sandwich item on the menu.
  */
-class SandwichInterface : MenuItem {
+class SandwichInterface : public MenuItem {
   protected:
     SandwichInterface() = default;
 
@@ -31,7 +31,7 @@ class SandwichInterface : MenuItem {
      * @brief Get the type of a sandwich.
      * @return Enum representing type of sandwich.
      */
-    virtual SandwichType getType() const = 0;
+    virtual SandwichType getSandwichType() const = 0;
 };
 
 #endif /* _SANDWICH_INTF_H_ */

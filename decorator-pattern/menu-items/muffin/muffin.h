@@ -23,7 +23,7 @@ class Muffin : public MuffinInterface {
     Muffin() = delete;
     ~Muffin() = default;
 
-    MuffinType getType() const override;
+    MuffinType getMuffinType() const override;
     double getCost() const override;
     std::string toString() const override;
 };

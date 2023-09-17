@@ -23,7 +23,7 @@ class Sandwich final : public SandwichInterface {
     Sandwich() = delete;
     ~Sandwich() = default;
 
-    SandwichType getType() const override;
+    SandwichType getSandwichType() const override;
     double getCost() const override;
     std::string toString() const override;
 };

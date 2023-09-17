@@ -23,7 +23,7 @@ class MuffinInterface : MenuItem {
   public:
     virtual ~MuffinInterface() override = default;
 
-    virtual MuffinType getType() const = 0;
+    virtual MuffinType getMuffinType() const = 0;
 };
 
 #endif /* MUFFIN_INTF_H_ */
