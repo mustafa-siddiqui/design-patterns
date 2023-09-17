@@ -10,6 +10,7 @@
 #ifndef _COSTS_H_
 #define _COSTS_H_
 
+#include "enums/condiment-type.h"
 #include "enums/muffin-type.h"
 #include "enums/sandwich-type.h"
 #include <map>
@@ -29,6 +30,12 @@ const std::map<MuffinType, double> MuffinCosts = {
     {MuffinType::CHOCOLATE_CHIP, 3.50},
     {MuffinType::VANILLA, 3.00},
     {MuffinType::BLUEBERRY, 3.50}};
+
+/// Costs for Condiment Types
+const std::map<CondimentType, double> CondimentCosts = {
+    {CondimentType::KETCHUP, 0.50},
+    {CondimentType::MAYO, 0.50},
+    {CondimentType::BBQ_SAUCE, 0.75}};
 
 // clang-format on
 
