@@ -7,7 +7,7 @@ CXXFLAGS = -Wall
 CURR_DIR = "."
 
 # Files
-IMPL_FILES = menu-items/sandwich/sandwich.cc menu-items/muffin/muffin.cc
+IMPL_FILES = menu-items/sandwich/sandwich.cc menu-items/muffin/muffin.cc menu-items/condiments/condiment.cc
 MAIN = main.cc
 
 all:
