@@ -30,4 +30,11 @@ Sandwich: {type: grilled cheese, condiment: ketchup, cost: $9.25}
 === Total ===
 Number of Sandwiches: 4
 Cost: $38.75
+=== All Items ===
+Sandwich: {type: chicken, cost: $10}
+Sandwich: {type: grilled cheese, cost: $8.75}
+Sandwich: {type: chicken, condiment: bbq sauce, cost: $10.75}
+Sandwich: {type: grilled cheese, condiment: ketchup, cost: $9.25}
+Muffin: {type: blueberry, cost: $3.5}
+Muffin: {type: chocolate chip, cost: $3.5}
 ```

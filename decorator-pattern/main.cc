@@ -64,5 +64,19 @@ int main(void) {
     std::cout << "Number of Sandwiches: " << sandwiches.size() << std::endl;
     std::cout << "Cost: $" << cost << std::endl;
 
+    // Print all menu items
+    std::vector<std::shared_ptr<MenuItem>> menuItems = {
+        std::make_shared<Sandwich>(chickenSandwich),
+        std::make_shared<Sandwich>(grilledCheeseSandwich),
+        chickenSandwichWithBbqSauce,
+        grilledCheeseSandwichWithKetchup,
+        std::make_shared<Muffin>(blueberryMuffin),
+        std::make_shared<Muffin>(chocolateChipMuffin)};
+
+    std::cout << "=== All Items ===" << std::endl;
+    for (auto item : menuItems) {
+        std::cout << item->toString() << std::endl;
+    }
+
     return 0;
 }

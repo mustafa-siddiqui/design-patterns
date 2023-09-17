@@ -16,7 +16,7 @@
 /// Forward declares
 enum class MuffinType : uint8_t;
 
-class MuffinInterface : MenuItem {
+class MuffinInterface : public MenuItem {
   protected:
     MuffinInterface() = default;
 
