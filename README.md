@@ -10,7 +10,9 @@ Suggested Reading:
 
 - Design Patterns (Chapter 2)
 
-[//] # Instructor email: jim@jimwatsonconsulting.com
+<!--
+Instructor email: jim@jimwatsonconsulting.com
+-->
 
 ---
 
