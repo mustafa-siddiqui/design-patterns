@@ -145,10 +145,12 @@ Evil “ifs” – The “go-tos” of OO:
         - Covariance: substituting narrower for wider
         - Contravariance: substituting wider for narrower
     - Breaking Substitutability: break violently, not silently
+<!--
 - Aspect Oriented Programming (AOP)
     - Code generation of proxies
     - Have some config file which mentions code to be added on (like logging (passive), `takeLock()` etc. (active)) to the main code
     - Addresses cross-cutting concerns
+-->
 - Visitor and Strategy are usually opposites / inverses in terms of tradeoffs
     - Effort required when adding more domain objects vs the utilities (e.g. display writer, or file writer)
 
