@@ -2,13 +2,13 @@
 
 Learning design patterns as I read [Head First Design Patterns](https://www.oreilly.com/library/view/head-first-design/9781492077992/).
 
-### Notes
+### Some Notes/Tips
 
 ---
 
 Suggested Reading:
 
-- Design Patterns (Chapter 2)
+- Design Patterns: Chapter 2 (The gang of 4 book)
 
 <!--
 Instructor email: jim@jimwatsonconsulting.com
@@ -33,7 +33,6 @@ Main Things About Design
 - Search for `new` or where the objects are being instantiated
 - Nouns are ‘cute’ but verbs are where it’s at
 - Separate policy and mechanism (mechanism: this class is usually more capable than what the requirements allow)
-- For every domain object, write a visitor interface and one liner `accept()` LOL
 - Break code violently, not silently
 - Inheritance is not the mechanism for reuse
 
@@ -65,7 +64,7 @@ Main Things About Design
         - Specific Patterns
             - Singleton
             - Registry Factory
-            - Prototype (dictionary of zombie objects with a `clone()` method — if-over-instantiation e.g. if type==”color”: return new Circle(); etc.)
+            - Prototype (dictionary of zombie objects with a `clone()` method — if-over-instantiation e.g. `if type==”color”: return new Circle();` etc.)
             - Abstract Factory
             - Factory method
             - Builder
